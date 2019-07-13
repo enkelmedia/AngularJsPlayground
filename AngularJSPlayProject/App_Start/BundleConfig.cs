@@ -18,12 +18,12 @@ namespace AngularJSPlayProject
 
             // Using LessBundle from https://github.com/scott-xu/System.Web.Optimization.Less
             bundles.Add(new LessBundle("~/Style/less")
-                .Include("~/Style/style.less")
+                .Include("~/Style/framework.less")
+                .Include("~/Style/implementation.less")
                 .IncludeDirectory("~/Scripts/App","*.less",true)
             );
             
-            bundles.Add(new StyleBundle("~/Style/css").Include(
-                      "~/Style/site.css"));
+
         }
     }
 }

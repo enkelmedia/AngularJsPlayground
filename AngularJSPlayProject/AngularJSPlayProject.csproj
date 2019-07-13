@@ -144,7 +144,6 @@
     <Content Include="Scripts\App\app.js" />
     <Content Include="Scripts\App\Directives\Multichoice\multichoice.directive.js" />
     <Content Include="Scripts\Lib\angular.1.7.8.min.js" />
-    <Content Include="Style\Site.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -168,9 +167,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Content Include="Style\Style.less" />
-    <Content Include="Style\_variables.less" />
+    <Content Include="Style\Implementation.less" />
+    <Content Include="Style\Partials\_variables.less" />
     <Content Include="Scripts\App\Directives\Multichoice\multichoice.less" />
+    <Content Include="Style\Framework.less" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

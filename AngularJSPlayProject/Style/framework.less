@@ -1,0 +1,539 @@
+﻿@import "partials/_variables";
+
+article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, .time, .address {
+    display: block;
+}
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+    position: relative;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    background-color: white;
+    min-height: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: @font_default;
+    font-weight: @weight_regular;
+    font-size: 2rem;
+    line-height: 1.35em;
+    color: @color;
+    background-color: @color_bg;
+}
+
+article {
+    position: relative;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    line-height: 1.15em;
+    font-kerning: normal;
+}
+
+h1 {
+    font-size: 6rem;
+    line-height: 1.05em;
+}
+
+h2 {
+    font-size: 5.6rem;
+    line-height: 1.2em;
+    font-weight: @weight_thin;
+    margin-bottom: 0.35em;
+}
+
+h3 {
+    font-size: 3rem;
+}
+
+h4 {
+    font-size: 1.6rem;
+}
+
+p {
+    font-size: 1.8rem;
+    line-height: 1.25em;
+    margin: 0;
+    padding: 0;
+}
+
+p + * {
+    margin-top: .833em;
+}
+
+strong, b {
+    font-weight: @weight_medium;
+}
+
+sub,
+sup {
+    position: relative;
+    font-size: 75%;
+    line-height: 0;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -.4em;
+}
+
+sub {
+    bottom: -.25em;
+}
+
+img {
+    border: none;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid @color_border;
+    margin: 6rem 0 4rem;
+    position: relative;
+    z-index: 2;
+}
+
+
+a {
+    color: @color_link;
+    text-decoration: none;
+    font-weight: @weight_medium;
+
+    &:hover {
+        color: @color_link_hover;
+        text-decoration: underline;
+    }
+
+    &[href^=tel] {
+        text-decoration: none;
+
+        &:hover {
+            color: inherit;
+        }
+    }
+}
+
+
+ul, ol, li {
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+ul li {
+    list-style: none;
+}
+
+iframe {
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+form {
+    label {
+        span {
+            font-size: 1.8rem;
+            font-weight: @weight_medium;
+            color: @color_primary;
+            display: block;
+            margin: 1.4rem 0 .3rem;
+        }
+    }
+
+    &.validated {
+        label.error {
+            color: @color_error;
+
+            span {
+                color: @color_error;
+            }
+
+            input, select {
+                border: 1px solid @color_error;
+            }
+        }
+    }
+
+    select {
+        font-size: 1.8rem;
+        line-height: 2.2rem;
+        font-weight: @weight_regular;
+    }
+
+    button, input, select {
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(0,0,0,.3);
+        }
+    }
+
+    .field-validation-valid {
+        margin: 0;
+    }
+}
+
+select {
+    font-family: @font_default;
+    /*-webkit-appearance: none;
+
+    &::-ms-expand {
+        display: none;
+    }*/
+}
+
+input, textarea {
+    /*-webkit-appearance: none;*/
+    padding: 1rem;
+    color: @color;
+
+    &:active {
+        border-color: @color_primary;
+    }
+}
+
+input[type=text] {
+    border: 0;
+}
+
+select {
+    padding: 1rem;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.introduction {
+    font-size: 2.1rem;
+    display: block;
+
+    & + p:not(.introduction) {
+        margin-top: 1.3em;
+    }
+}
+
+.footnote {
+    font-size: 1.5rem;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.meta {
+    position: absolute;
+    left: -4000px;
+    padding: 0 !important;
+}
+
+.scrollable {
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    table {
+
+        tr {
+            td,
+            th {
+                white-space: nowrap;
+
+                &:nth-last-of-type(2) {
+                    div {
+                        padding: 0 96px 0 0;
+                    }
+                }
+
+                &.tools {
+                    box-shadow: -5px 5px 10px -4px #777;
+                    border-left: none !important;
+                }
+            }
+        }
+    }
+}
+
+.scrollable.shadow {
+    box-shadow: inset -5px 0 6px -4px #777;
+    border: 1px solid #e2e2e2;
+}
+
+.clearfix:after {
+    content: '';
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.row {
+    display: flex;
+    align-content: flex-start;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 0 -@column_padding;
+}
+
+
+.col-md-1 {
+    width: 8.3333333333%;
+    padding: 0 @column_padding_small;
+}
+
+.col-md-2 {
+    width: 16.666666666%;
+    padding: 0 @column_padding_small;
+}
+
+.col-md-3 {
+    width: 25%;
+    padding: 0 @column_padding_small;
+}
+
+.col-md-4 {
+    width: 33.333333333%;
+    padding: 0 @column_padding;
+}
+
+.col-md-6 {
+    width: 50%;
+    padding: 0 @column_padding;
+}
+
+.col-md-8 {
+    width: 66.666666666%;
+    padding: 0 @column_padding;
+}
+
+.col-md-12 {
+    padding: 0 @column_padding;
+    width: 100%;
+}
+
+.rte {
+    max-width: 75rem;
+    word-break: break-word;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.col-md-3,
+.col-md-4,
+.col-md-6,
+.col-md-8 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+
+    & > div {
+        width: 100%;
+    }
+}
+
+
+.lazyimage,
+.lazyvideo {
+    display: block;
+    max-width: 100%;
+
+    span {
+        display: block;
+    }
+
+    img,
+    video {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-height: none;
+    }
+}
+
+.block {
+    max-width: 126rem;
+    box-sizing: content-box;
+    margin: 0 auto;
+    padding: 0 @site_padding;
+    position: relative;
+    z-index: 2;
+
+
+    &.fullwidth {
+        max-width: none;
+        padding: 0;
+    }
+
+    .block {
+        padding: 0;
+    }
+}
+
+.mobileonly {
+    display: none !important;
+}
+
+
+button {
+    cursor: pointer;
+    -webkit-appearance: none;
+    font-family: @font_default;
+}
+
+button, input {
+    &:focus {
+        outline: none;
+    }
+}
+
+
+@media screen and (max-width: @responsive_desktoplarge_width) {
+    html {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: @responsive_desktop_width), only screen and (max-height: @responsive_desktop_height) {
+    html {
+        font-size: 9px;
+    }
+
+    h1 {
+        line-height: 1.06em;
+    }
+
+    .row {
+        margin-left: -@column_padding_small;
+        margin-right: -@column_padding_small;
+    }
+
+    .col-md-4,
+    .col-md-6,
+    .col-md-8,
+    .col-md-12 {
+        padding-left: @column_padding_small;
+        padding-right: @column_padding_small;
+    }
+}
+
+@media screen and (max-width: @responsive_tablet_width) {
+    html {
+        font-size: 8px;
+    }
+
+    h1 {
+        line-height: 1.05em;
+    }
+}
+
+
+@media screen and (max-width: @responsive_mobile_width) {
+    html {
+        position: static;
+    }
+
+    body {
+        padding-top: 54px;
+    }
+
+    h1 {
+        font-size: 36px;
+        line-height: 38px;
+    }
+
+    h2 {
+        font-size: 38px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+
+
+    form {
+        input {
+            &[type="text"],
+            &[type="email"],
+            &[type="textarea"] {
+                font-size: 16px !important;
+            }
+        }
+
+        .select select {
+            font-size: 16px !important;
+        }
+    }
+
+    .block {
+        max-width: none;
+        padding: 0 2.5rem;
+    }
+
+    .row {
+        margin: 0 -@site_padding_mobile;
+        flex-wrap: wrap;
+    }
+
+    .col-md-4,
+    .col-md-6,
+    .col-md-8,
+    .col-md-12 {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 @site_padding_mobile;
+        display: block;
+    }
+
+    .col-md-2,
+    .col-md-3 {
+        width: 50%;
+        padding: 0 10px;
+    }
+
+
+    .mobileonly {
+        display: block !important;
+    }
+
+    .notmobile {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: @responsive_mobile_small_width) {
+    h1 {
+        font-size: 34px;
+        line-height: 36px;
+    }
+}
