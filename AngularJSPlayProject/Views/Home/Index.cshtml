@@ -3,11 +3,57 @@
 }
 <article>
 
-    <h1>Foo</h1>
+    <h1>AngularJS PlayGround Site</h1>
+<pre>TODO
+* Foo
+</pre>
+<div ng-controller="indexController as vm">
+    <h2>Directive scope parameters (attributes)</h2>
+    <h3>Parent Label</h3>
+    <p>
+        The label is passed to the demo-directive as a @@-attribute value, this means that a change here will update the value 
+        but a change in the directive will not be reflected here. Try the textbox inside the directive to see.
+    </p>
+    <input type="text" ng-model="vm.parentLabel" /><br />
+
+    <h3>Parent Info</h3>
+    <p>
+        This is also passed as a @@-attribute value to the demo-directives scope. Check the different binding types. 
+        Last 2:n binding inside the directive uses the "bind once and forget syntax" {::foo}, this means it will not 
+        update when we change the parent model here.
+    </p>
+    <input type="text" ng-model="vm.parentInfo" /><br />
+    <hr/>
+    <h3>Demo-Directive:</h3>
+    <demo-directive label="{{vm.parentLabel}}" 
+                    info="{{vm.parentInfo}}" 
+                    more-info="This is a hardcoded attribute-string"
+                    details="vm.parentDetails"
+                    on-update="vm.directiveUpdated(vm.parentDetails)"
+    ></demo-directive>
     
-    <div>
-        <multi-choice></multi-choice>
-    </div>
+    <hr/>
+    <h2>ng-switch</h2>
+    <p>
+        Works like "ng-if" removing the item from the DOM, but can be used like switch-statement in code.
+        <div>
+        <label>
+            <input type="radio" ng-model="switchState" value="Foo" /> Foo
+        </label>
+        <label>
+            <input type="radio" ng-model="switchState" value="Bar" /> Bar
+        </label>
+        <label>
+            <input type="radio" ng-model="switchState" value="Lorem" /> Lorem
+        </label>
+        </div>
+        <div ng-switch="switchState">
+            <div ng-switch-when="Foo">Foo, ohhh. Picking the first is always fast.</div>
+            <div ng-switch-when="Bar">Niiiice! You picked Bar</div>
+            <div ng-switch-when="Lorem">Thats a great chioce! You picked Lorem</div>
+        </div>
+    </p>
+</div>
 
 </article>
     

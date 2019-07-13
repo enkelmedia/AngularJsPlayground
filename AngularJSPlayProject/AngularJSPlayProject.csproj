@@ -142,7 +142,9 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\App\app.js" />
-    <Content Include="Scripts\App\Directives\Multichoice\multichoice.directive.js" />
+    <Content Include="Scripts\App\Controllers\index.controller.js" />
+    <Content Include="Scripts\App\Directives\demoDirective\demo.directive.js" />
+    <Content Include="Scripts\App\Directives\demoDirective\demo.html" />
     <Content Include="Scripts\Lib\angular.1.7.8.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -162,15 +164,14 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Scripts\App\Controllers\" />
     <Folder Include="Scripts\App\Filters\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Content Include="Style\Implementation.less" />
+    <Content Include="Style\implementation.less" />
     <Content Include="Style\Partials\_variables.less" />
-    <Content Include="Scripts\App\Directives\Multichoice\multichoice.less" />
-    <Content Include="Style\Framework.less" />
+    <Content Include="Scripts\App\Directives\demoDirective\demo.less" />
+    <Content Include="Style\framework.less" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
