@@ -16,7 +16,8 @@ namespace AngularJSPlayProject
             bundles.Add(new ScriptBundle("~/bundles/app")
                 .IncludeDirectory("~/Scripts/App", "*.js", true));
 
-            
+            // Using LessBundle from https://github.com/scott-xu/System.Web.Optimization.Less
+            bundles.Add(new LessBundle("~/Style/less").Include("~/Style/style.less"));
             
             bundles.Add(new StyleBundle("~/Style/css").Include(
                       "~/Style/site.css"));
