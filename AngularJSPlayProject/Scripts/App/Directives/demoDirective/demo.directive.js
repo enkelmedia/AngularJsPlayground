@@ -99,7 +99,7 @@
 
         return {
             restrict: 'E', //https://docs.angularjs.org/api/ng/service/$compile#-restrict-
-            replace: true, // This will replace the <multi-choice/> element from the calling view with the content of the directive. Deprecated - don't know why.
+            replace: true, // This will replace the <multi-choice/> element from the calling view with the content of the directive. Deprecated - because issue with "merge" of attribute values of the original element end the replacing element. See https://docs.angularjs.org/api/ng/service/$compile#issues-with-replace-true-
             scope: {
                 label:'@label', //@ performs "attribute"-binding. If the parent scope changes it'll be reflected, not the other way around. We can still change the local scope but this will be overwritten when/if the parent scope changes.
                 info:'@', //if the isolated scope property name is the same as the passed we can just use the @-sign. In this case this would be the same as @info

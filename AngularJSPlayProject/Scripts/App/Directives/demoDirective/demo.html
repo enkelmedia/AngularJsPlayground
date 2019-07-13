@@ -1,4 +1,9 @@
-﻿<div>
+﻿<!--
+Note: Due to the "issue" with replace:true the class here and the class in the calling element will be merged
+This is fine, but let's say we where using ng-if or ng-class - then these expressions would also be merge
+causing issues.
+-->
+<div class="bar">
     <label>Labels:</label>
     <ul>
         <li>Label: {{foo.label}}</li>
@@ -23,7 +28,7 @@
         <li ng-repeat="item in items"></li>
     </ul>
     <div style="border:1px solid #000" ng-transclude>
-        
+
     </div>
 
 </div>
