@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html ng-app="ngDemo">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Style/css")
+    
+    @Scripts.Render("~/bundles/lib")
+    @Scripts.Render("~/bundles/app")
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+            <li>@Html.ActionLink("About", "About", "Home")</li>
+            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+        </ul>
+    </nav>
+    <main class="container body-content">
+        @RenderBody()
+        <hr />
+        
+    </main>
+
+    
+    @RenderSection("scripts", required: false)
+</body>
+</html>
