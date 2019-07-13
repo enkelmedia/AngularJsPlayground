@@ -5,7 +5,8 @@
 
     <h1>AngularJS PlayGround Site</h1>
 <pre>TODO
-* Foo
+* watch collection
+* directives: require, kolla på det ? och ^
 </pre>
 <div ng-controller="indexController as vm">
     <h2>Directive scope parameters (attributes)</h2>
@@ -25,27 +26,30 @@
     <input type="text" ng-model="vm.parentInfo" /><br />
     <hr/>
     <h3>Demo-Directive:</h3>
-    <demo-directive label="{{vm.parentLabel}}" 
-                    info="{{vm.parentInfo}}" 
-                    more-info="This is a hardcoded attribute-string"
-                    details="vm.parentDetails"
-                    on-update="vm.directiveUpdated(foo,bar)"
-    ></demo-directive>
     
+    <div ng-repeat="i in [0,1,2]">
+        
+        <demo-directive label="{{vm.parentLabel}}"
+                        info="{{vm.parentInfo}}"
+                        more-info="This is a hardcoded attribute-string"
+                        details="vm.parentDetails"
+                        on-update="vm.directiveUpdated(foo,bar)"></demo-directive>
+        <br/><br/>
+    </div>
     <hr/>
     <h2>ng-switch</h2>
     <p>
         Works like "ng-if" removing the item from the DOM, but can be used like switch-statement in code.
         <div>
-        <label>
-            <input type="radio" ng-model="switchState" value="Foo" /> Foo
-        </label>
-        <label>
-            <input type="radio" ng-model="switchState" value="Bar" /> Bar
-        </label>
-        <label>
-            <input type="radio" ng-model="switchState" value="Lorem" /> Lorem
-        </label>
+            <label>
+                <input type="radio" ng-model="switchState" value="Foo"/> Foo
+            </label>
+            <label>
+                <input type="radio" ng-model="switchState" value="Bar"/> Bar
+            </label>
+            <label>
+                <input type="radio" ng-model="switchState" value="Lorem"/> Lorem
+            </label>
         </div>
         <div ng-switch="switchState">
             <div ng-switch-when="Foo">Foo, ohhh. Picking the first is always fast.</div>
