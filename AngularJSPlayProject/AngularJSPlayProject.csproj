@@ -169,6 +169,8 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Style\Style.less" />
+    <Content Include="Style\_variables.less" />
+    <Content Include="Scripts\App\Directives\Multichoice\multichoice.less" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
