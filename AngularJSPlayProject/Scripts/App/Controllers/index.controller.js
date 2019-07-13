@@ -8,9 +8,9 @@
         vm.parentInfo = "Some information goes here";
         vm.parentDetails = "Some parent details here";
 
-        vm.directiveUpdated = function (args) {
-            console.log('Diretive updated:', args);
-            alert('Directive was updated');
+        // When 
+        vm.directiveUpdated = function (args,args2) {
+            console.log('Directive updated:', args, 'more args: ', args2);
         };
     }
 

@@ -3,12 +3,13 @@
     <p>Info-bind: {{info}}</p>
     <p>Info-unbind {{::info}}</p> <!-- The syntax {{::info}} will only bind the value "on load" and never update again (aka no $watcher is added) -->
     <p>More-info: {{moreInfo}}</p>
+    <p>Link-value: {{valueFromLink}}</p>
     <input type="text" ng-model="label" />
-    <button ng-click="onUpdate()">Update</button>
-<pre>
-Att titta på:
-* 
-</pre>
+    <button ng-click="onUpdateClicked(foo,bar)">Update</button>
+    <pre>
+    Att titta på:
+    * 
+    </pre>
 
     <ul>
         <li ng-repeat="item in items"></li>
