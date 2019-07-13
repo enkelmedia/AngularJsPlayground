@@ -30,6 +30,37 @@
  * and not to the scope. This of course means that the scope-variable passed to the compile/link-functions will not
  * contain these values OR get updated when the bound value changes. Also, we can't access the vm from in the link-functions.
  *
+ * ------- Scope parameters as attributes -------
+ * If the directive has an isolated scope, we can pass any parameters to the directive using the scope : {}-object.
+ * like this scope: { label : '@text' }, will use the "text"-attribute for the scope property label. We can do these
+ * bindings in three different ways:
+ *
+ * Docs: https://docs.angularjs.org/api/ng/service/$compile#-scope-
+ *
+ * '@' - No "binding" but just binds to a string-value (static or interpolated), if the bound property changes the isolated scope is updated, but if the updated scope is changed
+ *     The bound scope will not be updated. If the bound scope is updated after the local scope has changes the value
+ *     from the bound scope will overwrite the value in the local scope (see foo.label / vm.label).
+ *     When using the directive the values is passed like this: <demo text="Static" /> or <demo text="{{vm.dynamicText}}">
+ *  
+ * '=' - A "two way" binding, this will propagate any changes on the local scope to the bound scope and wise versa.
+ *       Keep in mind that the parent scope will have to do a digiest which means rewrite and check everything.
+ *       It's not an "anti-pattern" but just think twice about if you reallt need the directive to change the bound value
+ *       Obviously this is needed if the directive performs any kind of "input" och state changes.
+ *
+ * '&' - Passing functions for callbacks. This is useful when the calling controller need to take action on something
+ *       That happened in the directive - ie a selection change or something like that. See the onUpdate-attribute
+ *       for example. Note that we're passing a object with multiple properties, each property is used as parameter
+ *       for the callback-function on the parent controller.
+ *
+ * '<' - "One way binding". In a similar way like @ this binds in one direction, but must contain a expression.
+ *       Used like: <demo text="vm.model.myText" />, then the parent scope changed the isolated scope changes but
+ *       not the other way around. One drawback of course is that we can't use a static string for this type of binding
+ *       without making it a expression <demo text="'My static text'" />
+ *
+ * '?' - Marks one of the above binding-types as optional.
+ *       - The binding is optional: the property will not be defined
+ *       - The binding is not optional: the property is defined
+ *
  * ------ require -------
  * 
  *
@@ -67,17 +98,13 @@
         };
 
         return {
-            replace:
-                true, // This will replace the <multi-choice/> element from the calling view with the content of the directive.
+            restrict: 'E', //https://docs.angularjs.org/api/ng/service/$compile#-restrict-
+            replace: true, // This will replace the <multi-choice/> element from the calling view with the content of the directive. Deprecated - don't know why.
             scope: {
-                //TODO: Example with details and "two way"
-                label:
-                    '@label', //@ performs "attribute"-binding. If the parent scope changes it'll be reflected, not the other way around. We can still change the local scope but this will be overwritten when/if the parent scope changes.
-                info:
-                    '@', //if the isolated scope property name is the same as the passed we can just use the @-sign. In this case this would be the same as @info
+                label:'@label', //@ performs "attribute"-binding. If the parent scope changes it'll be reflected, not the other way around. We can still change the local scope but this will be overwritten when/if the parent scope changes.
+                info:'@', //if the isolated scope property name is the same as the passed we can just use the @-sign. In this case this would be the same as @info
                 moreInfo: '@moreInfo',
-                details:
-                    '=details', //= performs a "two-way" binding, this directive can change it and it will reflect on the bound object.
+                details:'=details', //= performs a "two-way" binding, this directive can change it and it will reflect on the bound object.
                 items: '=items',
                 onUpdate: '&onUpdate' // & means that we're passing a function
             },
@@ -140,10 +167,28 @@
                     console.log('vm.label in controller after change:', vm.label);
                     //scope.label = 'foo';
 
-                    vm.label =
-                        scope.label; // This will only copy the value @-binding will no be re-evaluated when the bind-value changes.
+                    //vm.label = scope.label; // This will only copy the value @-binding will no be re-evaluated when the bind-value changes.
                     vm.label2 = 'foo';
                     vm.label3 = 'Set from the controller';
+
+                    
+                    vm.$onInit = function () {
+
+                        // Here we cant change any interpolated scope-variables from the parent scope.
+                        // But if we're using "two way"-binding we can
+
+                        console.log('controller $onInit(). Label:', vm.label);
+
+
+                    };
+                    vm.$postLink = function () {
+
+                        vm.label = 'Post link'; // No even here can we change the value of a interpolated binding.
+                        vm.details = 'I was replaced in the post link-method'; // But we can change this since this is a "two way"-binding.    
+                        console.log('controller $postLink(). Label:', vm.label);
+                        
+                        
+                    };
 
                     vm.onUpdateClicked = function() {
                         console.log('onUpdate was clicked');
@@ -158,9 +203,9 @@
 
                 }
             ],
-            controllerAs:
-                'foo', // Gives the controller a name to use in the views. Not that we're using vm. in the controller but 'foo.label' in the view because of this setting.
-            bindToController: true // Tells to bind the scope to "foo"
+            controllerAs: 'foo', // Gives the controller a name to use in the views. Not that we're using vm. in the controller but 'foo.label' in the view because of this setting.
+            bindToController: true, // Tells to bind the scope to "foo"
+            transclude : true // Means that we can have "child"-elements inside our directives coming from the calling view. They will be placed inside the element where ng-transclude is found in the template.
             //template: 'Hallo World' // If we're not using a .html-file we can create the output html as a string here. This would speed up first rendering since we don't need to fetch another html-file.
         };
     }
