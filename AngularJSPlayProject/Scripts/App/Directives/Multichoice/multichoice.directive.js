@@ -9,7 +9,7 @@
         };
     }
 
-    angular.module("ngDemo").directive("demoDirective", ['$http', demoDirective]);
+    angular.module("ngDemo").directive("multiChoice", ['$http', demoDirective]);
 
 })();
 
