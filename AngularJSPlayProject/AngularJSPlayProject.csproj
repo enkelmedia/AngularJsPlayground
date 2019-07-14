@@ -143,6 +143,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\App\app.js" />
     <Content Include="Scripts\App\Controllers\index.controller.js" />
+    <Content Include="Scripts\App\Directives\demoDirectiveRequire\demoDirectiveRequire.directive.js" />
     <Content Include="Scripts\App\Directives\demoDirective\demo.directive.js" />
     <Content Include="Scripts\App\Directives\demoDirective\demo.html" />
     <Content Include="Scripts\Lib\angular.1.7.8.min.js" />
