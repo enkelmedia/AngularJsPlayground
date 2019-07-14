@@ -1,17 +1,29 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<h1>POC mj-repeat-directive</h1>
+<article>
+    Parent:
+    <div ng-controller="mjRepeatController as vm">
+<pre>
+We should render a repeater that we've build our self here. Not that this only repeats the values with a hardcoded string in the js-code.
+It's just to show how we can use the compile/link-functions to manipulate the DOM before the directive is rendered.
+</pre>
+        <h4>UL</h4>
+        <ul>
+            <li mj-repeat="vm.items"></li>
+        </ul>
+        <h4>Div</h4>
+        <div>
+            <div mj-repeat="vm.items"></div>
+        </div>
+        <input type="text" ng-model="vm.newItemText" />
+        <button ng-click="vm.addItem()">Add</button>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
-
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+        <hr />
+        Items:
+<pre>
+{{vm.items | json}}}}
+</pre>
+    </div>
+</article>

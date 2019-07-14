@@ -103,7 +103,7 @@
         // * Directives: https://docs.angularjs.org/guide/directive
         // * Directives API: https://docs.angularjs.org/api/ng/service/$compile
         return {
-            restrict: 'E', //https://docs.angularjs.org/api/ng/service/$compile#-restrict-
+            restrict: 'E', // E= element, A=attribute, C=class, M=comment. Ex: EA = element + attribute supported. https://docs.angularjs.org/api/ng/service/$compile#-restrict-
             replace: true, // This will replace the <multi-choice/> element from the calling view with the content of the directive. Deprecated - because issue with "merge" of attribute values of the original element end the replacing element. See https://docs.angularjs.org/api/ng/service/$compile#issues-with-replace-true-
             scope: {
                 label:'@label', //@ performs "attribute"-binding. If the parent scope changes it'll be reflected, not the other way around. We can still change the local scope but this will be overwritten when/if the parent scope changes.
@@ -211,7 +211,8 @@
             controllerAs: 'foo', // Gives the controller a name to use in the views. Not that we're using vm. in the controller but 'foo.label' in the view because of this setting.
             bindToController: true, // Tells to bind the scope to "foo"
             transclude : true // Means that we can have "child"-elements inside our directives coming from the calling view. They will be placed inside the element where ng-transclude is found in the template.
-            //template: 'Hallo World' // If we're not using a .html-file we can create the output html as a string here. This would speed up first rendering since we don't need to fetch another html-file.
+            //template: 'Hallo World', // If we're not using a .html-file we can create the output html as a string here. This would speed up first rendering since we don't need to fetch another html-file.
+            //multiElement: true, // https://docs.angularjs.org/api/ng/service/$compile#-multielement-
         };
     }
 
