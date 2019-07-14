@@ -4,7 +4,8 @@
             <button ng-click="show = !show">Y</button>
         </div>
         <div>
-            <p>{{model}}</p>
+            <p ng-if="model">Vals:{{model}}</p>
+            <p ng-if="!model">Select</p>
         </div>
 
     </div>
