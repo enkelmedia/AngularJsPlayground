@@ -74,6 +74,7 @@
         // when the directive is loaded. At this point in the execution-chain we only have
         // injected dependencies from the function-parameters ($http and timeout) to play
         // with so must of the time we do not add any logic directly in this function.
+        // The "goal" with this function is to return the "Directive Definition Object"
 
         console.log('demoDirective-function()');
 
@@ -97,6 +98,10 @@
 
         };
 
+        // Returning the "Directive Definition Object" to define the directives behavior and settings.
+        // More info about this: 
+        // * Directives: https://docs.angularjs.org/guide/directive
+        // * Directives API: https://docs.angularjs.org/api/ng/service/$compile
         return {
             restrict: 'E', //https://docs.angularjs.org/api/ng/service/$compile#-restrict-
             replace: true, // This will replace the <multi-choice/> element from the calling view with the content of the directive. Deprecated - because issue with "merge" of attribute values of the original element end the replacing element. See https://docs.angularjs.org/api/ng/service/$compile#issues-with-replace-true-
