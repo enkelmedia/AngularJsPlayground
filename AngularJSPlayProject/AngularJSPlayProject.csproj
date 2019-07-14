@@ -144,10 +144,13 @@
     <Content Include="Scripts\App\app.js" />
     <Content Include="Scripts\App\Controllers\mjRepeat.controller.js" />
     <Content Include="Scripts\App\Controllers\index.controller.js" />
+    <Content Include="Scripts\App\Controllers\multi.controller.js" />
     <Content Include="Scripts\App\Directives\demoDirectiveRequire\demoDirectiveRequire.directive.js" />
     <Content Include="Scripts\App\Directives\demoDirective\demo.directive.js" />
     <Content Include="Scripts\App\Directives\demoDirective\demo.html" />
     <Content Include="Scripts\App\Directives\mjRepeat\mjRepeat.directive.js" />
+    <Content Include="Scripts\App\Directives\multiChoice\multiChoice.directive.js" />
+    <Content Include="Scripts\App\Directives\multiChoice\multiChoice.html" />
     <Content Include="Scripts\Lib\angular.1.7.8.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

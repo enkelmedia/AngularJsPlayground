@@ -1,0 +1,27 @@
+﻿<div class="multichoice">
+    <div ng-show="!show">
+        <div style="float:right">
+            <button ng-click="show = !show">Y</button>
+        </div>
+        <div>
+            <p>{{model}}</p>
+        </div>
+
+    </div>
+    <div ng-show="show">
+        <div style="float:right">   
+            <button ng-click="show = false">X</button>
+        </div>
+        <div>
+            <input type="text" ng-model="filter.name"/>
+            <ul>
+                <li ng-repeat="item in localItems | filter:filter track by item.id">
+                    <label>
+                        <input type="checkbox" ng-model="item.selected"/> {{item.name}}
+                    </label>
+                </li>
+            </ul>
+        </div>
+        
+    </div>
+</div>

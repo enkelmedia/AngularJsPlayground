@@ -1,7 +1,35 @@
 ﻿@{
     ViewBag.Title = "About";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<style>
+    .multichoice {
+        border: 1px solid #000;
+        /*display: inline-block;*/
+    }
 
-<p>Use this area to provide additional information.</p>
+    .multichoice ul {
+        height: 150px;
+        overflow-y: auto;
+    }
+
+    .element {
+        width: 350px;
+    }
+</style>
+<h1>Multi choice</h1>
+<article>
+    <div ng-controller="multiController as vm">
+        <pre>
+TODO:
+* Create a multi choice controller with a list of checkboxes
+</pre>
+        <p>Selected: {{vm.selected}}</p>
+        <hr/>
+        <div class="element">
+            <multi-choice items="vm.items" model="vm.selected"></multi-choice>
+        </div>
+        
+
+    </div>
+
+</article>
