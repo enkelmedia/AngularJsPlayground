@@ -144,13 +144,17 @@
     <Content Include="Scripts\App\app.js" />
     <Content Include="Scripts\App\Controllers\mjRepeat.controller.js" />
     <Content Include="Scripts\App\Controllers\index.controller.js" />
+    <Content Include="Scripts\App\Controllers\modelValueDirective.controller.js" />
     <Content Include="Scripts\App\Controllers\multi.controller.js" />
     <Content Include="Scripts\App\Directives\demoDirectiveRequire\demoDirectiveRequire.directive.js" />
     <Content Include="Scripts\App\Directives\demoDirective\demo.directive.js" />
     <Content Include="Scripts\App\Directives\demoDirective\demo.html" />
+    <Content Include="Scripts\App\Directives\demoModelControl\demoModelControl.directive.js" />
+    <Content Include="Scripts\App\Directives\demoModelControl\demoModelControl.html" />
     <Content Include="Scripts\App\Directives\mjRepeat\mjRepeat.directive.js" />
     <Content Include="Scripts\App\Directives\multiChoice\multiChoice.directive.js" />
     <Content Include="Scripts\App\Directives\multiChoice\multiChoice.html" />
+    <Content Include="Scripts\App\temp.js" />
     <Content Include="Scripts\Lib\angular.1.7.8.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -178,6 +182,7 @@
     <Content Include="Style\Partials\_variables.less" />
     <Content Include="Scripts\App\Directives\demoDirective\demo.less" />
     <Content Include="Style\framework.less" />
+    <Content Include="Views\Home\ModelControl.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

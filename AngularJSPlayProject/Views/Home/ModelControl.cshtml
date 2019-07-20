@@ -1,0 +1,10 @@
+﻿
+
+<article ng-controller="modelValueDirectiveController as vm">
+    <h1>Model Control Demo</h1>
+    <p>This shows a directive that has a "ng-model" and provides validation etc for this control</p>
+    
+    <hr/>
+    <p>Current Parent Value: {{vm.parentValue}}</p>
+    <demo-model-control ng-model="vm.parentValue"></demo-model-control>
+</article>

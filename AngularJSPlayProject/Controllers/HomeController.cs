@@ -28,5 +28,10 @@ namespace AngularJSPlayProject.Controllers
 
             return View();
         }
+
+        public ActionResult ModelControl()
+        {
+            return View();
+        }
     }
 }
