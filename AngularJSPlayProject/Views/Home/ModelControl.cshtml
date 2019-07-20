@@ -1,10 +1,24 @@
-﻿
-
-<article ng-controller="modelValueDirectiveController as vm">
+﻿<article ng-controller="modelValueDirectiveController as vm" ng-cloak>
     <h1>Model Control Demo</h1>
-    <p>This shows a directive that has a "ng-model" and provides validation etc for this control</p>
-    
-    <hr/>
-    <p>Current Parent Value: {{vm.parentValue}}</p>
-    <demo-model-control ng-model="vm.parentValue"></demo-model-control>
+    <p>
+        This shows a directive that has a "ng-model" and provides validation etc for this control. We've also implemented custom validators for the control,
+        meaning that we support the min/max-attributes for the demo-model-control. Any changed to the control will trigger a validation that would look att the
+        current number and compare against any min/max-settings for the control.
+    </p>
+    <form name="myForm" novalidate="">
+        <hr />
+        <p>Current Parent Value: {{vm.parentValue}}</p>
+        <div>
+            <div>
+                <input type="number" ng-model="vm.parentValue" min="1" max="9" name="parentVal" /> Valid: {{myForm.parentVal.$valid}}
+            </div>
+            <div>
+                <input type="number" ng-model="vm.parentValue" name="parentNoVal" /> Valid: {{myForm.parentNoVal.$valid}}
+            </div>
+        </div>
+        <demo-model-control ng-model="vm.parentValue" required="" min="10" ng-max="vm.customMax" name="custom"></demo-model-control> Valid: {{myForm.custom.$valid}}
+        <div>
+            Bound max for demo-model-control: <input type="number" ng-model="vm.customMax" />
+        </div>
+    </form>
 </article>
