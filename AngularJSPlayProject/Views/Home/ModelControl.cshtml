@@ -1,4 +1,9 @@
-﻿<article ng-controller="modelValueDirectiveController as vm" ng-cloak>
+﻿<style>
+    .errors p {
+        color: red;
+    }
+</style>
+<article ng-controller="modelValueDirectiveController as vm" ng-cloak>
     <h1>Model Control Demo</h1>
     <p>
         This shows a directive that has a "ng-model" and provides validation etc for this control. We've also implemented custom validators for the control,
@@ -16,7 +21,14 @@
                 <input type="number" ng-model="vm.parentValue" name="parentNoVal" /> Valid: {{myForm.parentNoVal.$valid}}
             </div>
         </div>
-        <demo-model-control ng-model="vm.parentValue" required="" min="10" ng-max="vm.customMax" name="custom"></demo-model-control> Valid: {{myForm.custom.$valid}}
+        <demo-model-control ng-model="vm.parentValue" required="" must-be-even="true" min="10" ng-max="vm.customMax" name="custom"></demo-model-control>
+        Valid: {{myForm.custom.$valid}}<br />
+        <div class="errors">
+            <p ng-if="myForm.custom.$error.mustBeEven">Have to be an even number</p>
+            <p ng-if="myForm.custom.$error.max">Too high number, try lower</p>
+            <p ng-if="myForm.custom.$error.min">Too low number, try higher</p>
+        </div>
+        myForm.custom.$error: {{myForm.custom.$error | json}}}
         <div>
             Bound max for demo-model-control: <input type="number" ng-model="vm.customMax" />
         </div>

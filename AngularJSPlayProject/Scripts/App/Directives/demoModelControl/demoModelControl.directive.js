@@ -124,6 +124,26 @@
                     });
                 }
 
+                // Custom validation for must-be-even="true"
+                if (attr.mustBeEven || attr.ngMustBeEven) {
+
+                    var mustBeEven = attr.mustBeEven == 'true' || $parse(attr.ngMustBeEven)(scope.$parent);
+
+                    var isEven = function(n) {
+                        return n % 2 == 0;
+                    };
+
+                    if (mustBeEven) {
+
+                        ngModelCtrl.$validators.mustBeEven = function (modelValue, viewValue) {
+                            return ngModelCtrl.$isEmpty(viewValue) || isEven(viewValue);
+                        };
+
+                    }
+                    
+                    console.log('has attribute');
+
+                }
 
             }
             
